@@ -1,11 +1,18 @@
 import React, { useContext } from "react";
 import { GithubContext } from "../context/context";
 function Info() {
-  const data = useContext(GithubContext);
+  const { githubUser } = useContext(GithubContext);
+  const { following, followers, public_repos, public_gists, name } = githubUser;
 
   return (
     <div className="info">
-      <h1>Info: {data}</h1>
+      <section>
+        <p>Name:{name}</p>
+        <p>Followers:{followers}</p>
+        <p>Following:{following}</p>
+        <p>Public gists:{public_gists}</p>
+        <p>Public repositories:{public_repos}</p>
+      </section>
     </div>
   );
 }
